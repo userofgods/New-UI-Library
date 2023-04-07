@@ -56,7 +56,7 @@ Tab:AddSlider({
 
 # Destorying The UI
 ```lua
-VisualLib:Destory()
+VisualLib:Destroy()
 ```
 
 Thats all
