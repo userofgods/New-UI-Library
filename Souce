@@ -1,0 +1,373 @@
+local VisualLib = {}
+local TitleScreen = Instance.new("ScreenGui")
+local BackTitleScreen = Instance.new("Frame")
+local TitleScreen_2 = Instance.new("TextLabel")
+
+TitleScreen.Name = "TitleScreen"
+TitleScreen.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+TitleScreen.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+BackTitleScreen.Name = "BackTitleScreen"
+BackTitleScreen.Parent = TitleScreen
+BackTitleScreen.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+BackTitleScreen.BackgroundTransparency = 1.000
+BackTitleScreen.Position = UDim2.new(0.42109257, 0, 0.439999998, 0)
+BackTitleScreen.Size = UDim2.new(0, 207, 0, 68)
+
+TitleScreen_2.Name = "TitleScreen"
+TitleScreen_2.Parent = BackTitleScreen
+TitleScreen_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TitleScreen_2.BackgroundTransparency = 1.000
+TitleScreen_2.Position = UDim2.new(0.0193236712, 0, 0.132352948, 0)
+TitleScreen_2.Size = UDim2.new(0, 200, 0, 50)
+TitleScreen_2.Font = Enum.Font.Unknown
+TitleScreen_2.Text = "UI Library make by UIMaker(@Momwatdapack1123)"
+TitleScreen_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TitleScreen_2.TextScaled = true
+TitleScreen_2.TextSize = 14.000
+TitleScreen_2.TextWrapped = true
+wait(5)
+TitleScreen:Destroy()
+
+local UiLibrary = Instance.new("ScreenGui")
+
+UiLibrary.Name = "UiLibrary"
+UiLibrary.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+UiLibrary.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+function VisualLib:MakeWindow(WindowFile)
+	WindowFile = WindowFile or {}
+	WindowFile.Name = WindowFile.Name or ""
+	local UIFrame = Instance.new("Frame")
+	local UICorner = Instance.new("UICorner")
+	local DropShadowHolder = Instance.new("Frame")
+	local DropShadow = Instance.new("ImageLabel")
+	local TopBar = Instance.new("Frame")
+	local UICorner_2 = Instance.new("UICorner")
+	local AssestTopBar = Instance.new("Frame")
+	local Title = Instance.new("TextLabel")
+	local TabContainer = Instance.new("Frame")
+	local UICorner_3 = Instance.new("UICorner")
+	local Cover = Instance.new("Frame")
+	local Cover_2 = Instance.new("Frame")
+	local TheTabContainer = Instance.new("Frame")
+	local UIGridLayout = Instance.new("UIGridLayout")
+	local ContainerFolder = Instance.new("Folder")
+
+	UIFrame.Name = "UIFrame"
+	UIFrame.Parent = UiLibrary
+	UIFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+	UIFrame.Position = UDim2.new(0.302731425, 0, 0.304347813, 0)
+	UIFrame.Size = UDim2.new(0, 396, 0, 272)
+	UIFrame.Active = true
+	UIFrame.Draggable = true
+
+	UICorner.Parent = UIFrame
+
+	DropShadowHolder.Name = "DropShadowHolder"
+	DropShadowHolder.Parent = UIFrame
+	DropShadowHolder.BackgroundTransparency = 1.000
+	DropShadowHolder.BorderSizePixel = 0
+	DropShadowHolder.Size = UDim2.new(1, 0, 1, 0)
+	DropShadowHolder.ZIndex = 0
+
+	DropShadow.Name = "DropShadow"
+	DropShadow.Parent = DropShadowHolder
+	DropShadow.AnchorPoint = Vector2.new(0.5, 0.5)
+	DropShadow.BackgroundTransparency = 1.000
+	DropShadow.BorderSizePixel = 0
+	DropShadow.Position = UDim2.new(0.5, 0, 0.5, 0)
+	DropShadow.Size = UDim2.new(1, 47, 1, 47)
+	DropShadow.ZIndex = 0
+	DropShadow.Image = "rbxassetid://6014261993"
+	DropShadow.ImageColor3 = Color3.fromRGB(0, 0, 0)
+	DropShadow.ImageTransparency = 0.500
+	DropShadow.ScaleType = Enum.ScaleType.Slice
+	DropShadow.SliceCenter = Rect.new(49, 49, 450, 450)
+
+	TopBar.Name = "TopBar"
+	TopBar.Parent = UIFrame
+	TopBar.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+	TopBar.Size = UDim2.new(0, 396, 0, 30)
+
+	UICorner_2.Parent = TopBar
+
+	AssestTopBar.Name = "AssestTopBar"
+	AssestTopBar.Parent = TopBar
+	AssestTopBar.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+	AssestTopBar.BorderSizePixel = 0
+	AssestTopBar.Position = UDim2.new(0, 0, 0.600000024, 0)
+	AssestTopBar.Size = UDim2.new(0, 396, 0, 12)
+
+	Title.Name = "Title"
+	Title.Parent = TopBar
+	Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Title.BackgroundTransparency = 1.000
+	Title.Size = UDim2.new(0, 203, 0, 30)
+	Title.ZIndex = 2
+	Title.Font = Enum.Font.Unknown
+	Title.Text = WindowFile.Name
+	Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+	Title.TextScaled = true
+	Title.TextSize = 14.000
+	Title.TextWrapped = true
+	Title.TextXAlignment = Enum.TextXAlignment.Left
+
+	TabContainer.Name = "TabContainer"
+	TabContainer.Parent = UIFrame
+	TabContainer.BackgroundColor3 = Color3.fromRGB(68, 68, 68)
+	TabContainer.Position = UDim2.new(0, 0, 0.110294119, 0)
+	TabContainer.Size = UDim2.new(0, 116, 0, 242)
+
+	UICorner_3.Parent = TabContainer
+
+	Cover.Name = "Cover"
+	Cover.Parent = TabContainer
+	Cover.BackgroundColor3 = Color3.fromRGB(68, 68, 68)
+	Cover.BorderSizePixel = 0
+	Cover.Position = UDim2.new(0.879310369, 0, -0.00127618958, 0)
+	Cover.Size = UDim2.new(0, 14, 0, 242)
+
+	Cover_2.Name = "Cover"
+	Cover_2.Parent = TabContainer
+	Cover_2.BackgroundColor3 = Color3.fromRGB(68, 68, 68)
+	Cover_2.BorderSizePixel = 0
+	Cover_2.Position = UDim2.new(0, 0, -0.00127618958, 0)
+	Cover_2.Size = UDim2.new(0, 14, 0, 17)
+
+	TheTabContainer.Name = "TheTabContainer"
+	TheTabContainer.Parent = TabContainer
+	TheTabContainer.BackgroundColor3 = Color3.fromRGB(68, 68, 68)
+	TheTabContainer.BorderSizePixel = 0
+	TheTabContainer.Position = UDim2.new(0.120689653, 0, 0.0276494306, 0)
+	TheTabContainer.Size = UDim2.new(0, 88, 0, 235)
+
+	UIGridLayout.Parent = TheTabContainer
+	UIGridLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+	UIGridLayout.SortOrder = Enum.SortOrder.LayoutOrder
+	UIGridLayout.CellSize = UDim2.new(0, 90, 0, 50)
+	
+	ContainerFolder.Name = "ContainerFolder"
+	ContainerFolder.Parent = UIFrame
+	
+	local TabFunction = {}
+	
+	function TabFunction:CreateTab(TabFile)
+		TabFile = TabFile or {}
+		TabFile.Name = TabFile.Name or ""
+		local NewTab = Instance.new("TextButton")
+		local UICorner_4 = Instance.new("UICorner")
+		local Container = Instance.new("Frame")
+		local _2ndContainer = Instance.new("ScrollingFrame")
+		local UIGridLayout_2 = Instance.new("UIGridLayout")
+		
+		NewTab.Name = "NewTab"
+		NewTab.Parent = TheTabContainer
+		NewTab.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+		NewTab.Position = UDim2.new(-0.579545438, 0, 0.17872341, 0)
+		NewTab.Size = UDim2.new(0, 200, 0, 50)
+		NewTab.Font = Enum.Font.Unknown
+		NewTab.Text = TabFile.Name
+		NewTab.TextColor3 = Color3.fromRGB(255, 255, 255)
+		NewTab.TextScaled = true
+		NewTab.TextSize = 14.000
+		NewTab.TextWrapped = true
+
+		UICorner_4.Parent = NewTab
+
+		Container.Name = "Container"
+		Container.Parent = ContainerFolder
+		Container.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+		Container.BorderSizePixel = 0
+		Container.Position = UDim2.new(0.292929292, 0, 0.106617644, 0)
+		Container.Size = UDim2.new(0, 280, 0, 231)
+
+		_2ndContainer.Name = "_2ndContainer"
+		_2ndContainer.Parent = Container
+		_2ndContainer.Active = true
+		_2ndContainer.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+		_2ndContainer.BorderSizePixel = 0
+		_2ndContainer.Position = UDim2.new(0, 0, 0.076585114, 0)
+		_2ndContainer.Size = UDim2.new(0, 280, 0, 213)
+		_2ndContainer.VerticalScrollBarPosition = Enum.VerticalScrollBarPosition.Left
+		
+		UIGridLayout_2.Parent = _2ndContainer
+		UIGridLayout_2.HorizontalAlignment = Enum.HorizontalAlignment.Center
+		UIGridLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
+		UIGridLayout_2.CellPadding = UDim2.new(0, 5, 0, 10)
+		UIGridLayout_2.CellSize = UDim2.new(0, 250, 0, 40)
+		
+		NewTab.MouseButton1Click:Connect(function()
+			for _,frame in pairs(ContainerFolder:GetChildren()) do
+				frame.Visible = false
+			end
+			Container.Visible = true
+		end)
+		
+		local AddElement = {}
+		
+		function AddElement:AddButton(ButtonFile)
+			ButtonFile = ButtonFile or {}
+			ButtonFile.Name = ButtonFile.Name or ""
+			ButtonFile.Callback = ButtonFile.Callback or function() end
+			local NewButton = Instance.new("TextButton")
+			local UICorner_5 = Instance.new("UICorner")
+			
+			NewButton.Name = "NewButton"
+			NewButton.Parent = _2ndContainer
+			NewButton.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+			NewButton.Position = UDim2.new(0.0535714291, 0, 0, 0)
+			NewButton.Size = UDim2.new(0, 250, 0, 49)
+			NewButton.Font = Enum.Font.Unknown
+			NewButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+			NewButton.TextScaled = true
+			NewButton.TextSize = 14.000
+			NewButton.TextWrapped = true
+			NewButton.TextXAlignment = Enum.TextXAlignment.Left
+			NewButton.Text = ButtonFile.Name
+
+			UICorner_5.Parent = NewButton
+			
+			NewButton.MouseButton1Click:Connect(function()
+				pcall(ButtonFile.Callback)
+			end)
+		end
+		
+		function AddElement:AddToggle(ToggleFile)
+			ToggleFile = ToggleFile or {}
+			ToggleFile.Name = ToggleFile.Name or ""
+			ToggleFile.Callback = ToggleFile.Callback or function() end
+			local NewToggle = Instance.new("TextButton")
+			local UICorner_6 = Instance.new("UICorner")
+			local ToggleFrame = Instance.new("Frame")
+			local _Frame = Instance.new("Frame")
+			local UICorner_7 = Instance.new("UICorner")
+			local UICorner_8 = Instance.new("UICorner")
+
+
+			NewToggle.Name = "NewToggle"
+			NewToggle.Parent = _2ndContainer
+			NewToggle.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+			NewToggle.Position = UDim2.new(0.107142858, 0, 0.00649350649, 0)
+			NewToggle.Size = UDim2.new(0, 250, 0, 49)
+			NewToggle.Font = Enum.Font.Unknown
+			NewToggle.Text = ToggleFile.Name
+			NewToggle.TextColor3 = Color3.fromRGB(255, 255, 255)
+			NewToggle.TextScaled = true
+			NewToggle.TextSize = 14.000
+			NewToggle.TextWrapped = true
+			NewToggle.TextXAlignment = Enum.TextXAlignment.Left
+
+			UICorner_6.Parent = NewToggle
+
+			ToggleFrame.Name = "ToggleFrame"
+			ToggleFrame.Parent = NewToggle
+			ToggleFrame.BackgroundColor3 = Color3.fromRGB(83, 83, 83)
+			ToggleFrame.Position = UDim2.new(0.723999977, 0, 0.174999997, 0)
+			ToggleFrame.Size = UDim2.new(0, 59, 0, 26)
+
+			UICorner_8.Parent = ToggleFrame
+
+			_Frame.Name = "_Frame"
+			_Frame.Parent = ToggleFrame
+			_Frame.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+			_Frame.Position = UDim2.new(0.098591432, 0, 0.15384616, 0)
+			_Frame.Size = UDim2.new(0, 26, 0, 17)
+
+			UICorner_7.Parent = _Frame
+			
+			local function Fire()
+				enabled = not enabled
+				_Frame:TweenPosition(enabled and UDim2.new(0.455, 0,0.154, 0) or UDim2.new(0.166, 0,0.154, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Sine, 0.2)
+				_Frame.BackgroundColor3 = enabled and Color3.fromRGB(0, 255, 0) or Color3.fromRGB(255, 0, 0)
+				pcall(ToggleFile.Callback)
+			end
+			
+			NewToggle.MouseButton1Click:Connect(Fire)
+		end
+		
+		function AddElement:AddSlider(SliderFile)
+			SliderFile = SliderFile or {}
+			SliderFile.Name = SliderFile.Name or ""
+			SliderFile.Min = SliderFile.Min or 0
+			SliderFile.Max = SliderFile.Max or 100
+			SliderFile.Callback = SliderFile.Callback or function() end
+			local Slider = Instance.new("Frame")
+			local UICorner = Instance.new("UICorner")
+			local BackHolder = Instance.new("Frame")
+			local UICorner_2 = Instance.new("UICorner")
+			local SliderName = Instance.new("TextLabel")
+			local Handle = Instance.new("Frame")
+			local UICorner_3 = Instance.new("UICorner")
+
+			Slider.Name = "Slider"
+			Slider.Parent = _2ndContainer
+			Slider.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+			Slider.Position = UDim2.new(0.303571433, 0, 0.20562771, 0)
+			Slider.Size = UDim2.new(0, 100, 0, 100)
+
+			UICorner.Parent = Slider
+
+			BackHolder.Name = "BackHolder"
+			BackHolder.Parent = Slider
+			BackHolder.BackgroundColor3 = Color3.fromRGB(115, 115, 115)
+			BackHolder.Position = UDim2.new(0.0399999991, 0, 0.150000006, 0)
+			BackHolder.Size = UDim2.new(0, 229, 0, 27)
+
+			UICorner_2.Parent = BackHolder
+
+			SliderName.Name = "SliderName"
+			SliderName.Parent = BackHolder
+			SliderName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			SliderName.BackgroundTransparency = 1.000
+			SliderName.Size = UDim2.new(0, 229, 0, 27)
+			SliderName.Font = Enum.Font.Unknown
+			SliderName.Text = SliderFile.Name
+			SliderName.TextColor3 = Color3.fromRGB(0, 0, 0)
+			SliderName.TextScaled = true
+			SliderName.TextSize = 14.000
+			SliderName.TextWrapped = true
+
+			Handle.Name = "Handle"
+			Handle.Parent = BackHolder
+			Handle.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+			Handle.Size = UDim2.new(0, 10, 0, 27)
+
+			UICorner_3.Parent = Handle
+			
+			local Dragging = false
+
+			Handle.InputBegan:Connect(function(Input)
+				if Input.UserInputType == Enum.UserInputType.MouseButton1 then 
+					Dragging = true 
+				end 
+			end)
+			Handle.InputEnded:Connect(function(Input) 
+				if Input.UserInputType == Enum.UserInputType.MouseButton1 then 
+					Dragging = false 
+				end 
+			end)
+
+			game:GetService("UserInputService").InputChanged:Connect(function(Input)
+				if Dragging and Input.UserInputType == Enum.UserInputType.MouseMovement then
+					local MouseX = Input.Position.X - BackHolder.AbsolutePosition.X
+					Handle.Position = UDim2.new(0, math.clamp(MouseX, 0, BackHolder.Size.X.Offset), 0, 0)
+					
+					local Percentage = Handle.Position.X.Offset / BackHolder.Size.X.Offset
+					local Value = SliderFile.Min + (SliderFile.Max - SliderFile.Min) * Percentage
+				end
+			end)
+
+
+		end
+		
+		return AddElement
+	end
+	return TabFunction
+end
+
+function VisualLib:Destroy()
+	UiLibrary:Destroy()
+end
+
+return VisualLib
