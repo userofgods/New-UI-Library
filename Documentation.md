@@ -54,9 +54,24 @@ Tab:AddSlider({
 })
 ```
 
+## Adding A KeyBind -- UPDATE
+```lua
+Tab:AddKeyBind({
+    Name = "KeyBind",
+    Input = Enum.KeyCode.E,
+    Callback = function ()
+        print("Working")
+    end
+})
+```
+Remember the Keyback is a Button, So its Useless
+
+## Adding A TextLabel -- UPDATE
+```lua
+Tab:AddTextLabel("TEXTLABEL")
+```
+
 # Destorying The UI
 ```lua
 VisualLib:Destroy()
 ```
-
-Thats all
