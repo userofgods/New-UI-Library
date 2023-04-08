@@ -53,6 +53,11 @@ function VisualLib:MakeWindow(WindowFile)
 	local TheTabContainer = Instance.new("Frame")
 	local UIGridLayout = Instance.new("UIGridLayout")
 	local ContainerFolder = Instance.new("Folder")
+	local ProfileIMAGE = Instance.new("ImageLabel")
+	local TextLabel = Instance.new("TextLabel")
+	local UICorner = Instance.new("UICorner")
+	
+	local userID = game.Players.LocalPlayer.UserId
 
 	UIFrame.Name = "UIFrame"
 	UIFrame.Parent = UiLibrary
@@ -149,6 +154,29 @@ function VisualLib:MakeWindow(WindowFile)
 	
 	ContainerFolder.Name = "ContainerFolder"
 	ContainerFolder.Parent = UIFrame
+	
+	ProfileIMAGE.Name = "ProfileIMAGE"
+	ProfileIMAGE.Parent = TabContainer
+	ProfileIMAGE.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	ProfileIMAGE.BackgroundTransparency = 0
+	ProfileIMAGE.Position = UDim2.new(0, 0, 0.779715538, 0)
+	ProfileIMAGE.Size = UDim2.new(0, 44, 0, 41)
+	ProfileIMAGE.Image = "https://www.roblox.com/headshot-thumbnail/image?userId="..userID.."&width=420&height=420&format=png"
+	
+	TextLabel.Name = "Profile Name"
+	TextLabel.Parent = TabContainer
+	TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	TextLabel.BackgroundTransparency = 1
+	TextLabel.Position = UDim2.new(0.37931034, 0, 0.779715538, 0)
+	TextLabel.Size = UDim2.new(0, 72, 0, 41)
+	TextLabel.Font = Enum.Font.Unknown
+	TextLabel.Text = game.Players.LocalPlayer.Name
+	TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+	TextLabel.TextScaled = true
+	TextLabel.TextSize = 14.000
+	TextLabel.TextWrapped = true
+
+	UICorner.Parent = TextLabel
 	
 	local TabFunction = {}
 	
@@ -444,4 +472,4 @@ function VisualLib:Destroy()
 	UiLibrary:Destroy()
 end
 
-return VisualLib
+local Window = VisualLib:MakeWindow({Name = "Visual Test"})
