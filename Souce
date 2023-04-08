@@ -472,4 +472,4 @@ function VisualLib:Destroy()
 	UiLibrary:Destroy()
 end
 
-local Window = VisualLib:MakeWindow({Name = "Visual Test"})
+return VisualLib
