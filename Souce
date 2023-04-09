@@ -503,4 +503,8 @@ function VisualLib:MakeWindow(WindowFile)
 	return TabFunction
 end
 
+function VisualLib:Destroy()
+	UiLibrary:Destroy()
+end
+
 return VisualLib
