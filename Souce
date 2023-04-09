@@ -503,15 +503,4 @@ function VisualLib:MakeWindow(WindowFile)
 	return TabFunction
 end
 
-local Window = VisualLib:MakeWindow({Name = "Visual Library"})
-
-local Tab = Window:CreateTab({
-	Name = "Tab"
-})
-
-Tab:AddKeyBind({
-	Name = "KeyBindTest",
-	Callback = function ()
-		print("Working")
-	end
-})
+return VisualLib
