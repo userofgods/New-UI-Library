@@ -54,11 +54,10 @@ Tab:AddSlider({
 })
 ```
 
-## Adding A KeyBind -- UPDATE
+## Adding A KeyBind -- KEYBIND FIX INPUT
 ```lua
 Tab:AddKeyBind({
     Name = "KeyBind",
-    Input = Enum.KeyCode.E,
     Callback = function ()
         print("Working")
     end
