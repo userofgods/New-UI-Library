@@ -34,40 +34,67 @@ TitleScreen_2.TextWrapped = true
 wait(5)
 TitleScreen:Destroy()
 
-
 function VisualLib:MakeWindow(WindowFile)
 	WindowFile = WindowFile or {}
 	WindowFile.Name = WindowFile.Name or ""
-	local UIFrame = Instance.new("Frame")
-	local UICorner = Instance.new("UICorner")
-	local DropShadowHolder = Instance.new("Frame")
-	local DropShadow = Instance.new("ImageLabel")
+	local UiLibrary = Instance.new("ScreenGui")
 	local TopBar = Instance.new("Frame")
-	local UICorner_2 = Instance.new("UICorner")
+	local UICorner = Instance.new("UICorner")
 	local AssestTopBar = Instance.new("Frame")
 	local Title = Instance.new("TextLabel")
-	local TabContainer = Instance.new("Frame")
+	local UIFrame = Instance.new("Frame")
 	local UICorner_3 = Instance.new("UICorner")
+	local DropShadowHolder = Instance.new("Frame")
+	local DropShadow = Instance.new("ImageLabel")
+	local TabContainer = Instance.new("Frame")
+	local UICorner_4 = Instance.new("UICorner")
 	local Cover = Instance.new("Frame")
 	local Cover_2 = Instance.new("Frame")
 	local TheTabContainer = Instance.new("Frame")
 	local UIGridLayout = Instance.new("UIGridLayout")
 	local ContainerFolder = Instance.new("Folder")
-	local ProfileIMAGE = Instance.new("ImageLabel")
-	local TextLabel = Instance.new("TextLabel")
-	local UICorner = Instance.new("UICorner")
 	
-	local userID = game.Players.LocalPlayer.UserId
+	UiLibrary.Name = "UiLibrary"
+	UiLibrary.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+	UiLibrary.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+	TopBar.Name = "TopBar"
+	TopBar.Parent = UiLibrary
+	TopBar.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+	TopBar.Position = UDim2.new(0.349772394, 0, 0.321739137, 0)
+	TopBar.Size = UDim2.new(0, 396, 0, 30)
+	TopBar.Active = true
+	TopBar.Draggable = true
+
+	UICorner.Parent = TopBar
+
+	AssestTopBar.Name = "AssestTopBar"
+	AssestTopBar.Parent = TopBar
+	AssestTopBar.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+	AssestTopBar.BorderSizePixel = 0
+	AssestTopBar.Position = UDim2.new(0, 0, 0.600000024, 0)
+	AssestTopBar.Size = UDim2.new(0, 396, 0, 12)
+
+	Title.Name = "Title"
+	Title.Parent = TopBar
+	Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Title.BackgroundTransparency = 1.000
+	Title.Size = UDim2.new(0, 203, 0, 30)
+	Title.Font = Enum.Font.Unknown
+	Title.Text = "UI Library"
+	Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+	Title.TextScaled = true
+	Title.TextSize = 14.000
+	Title.TextWrapped = true
+	Title.TextXAlignment = Enum.TextXAlignment.Left
 
 	UIFrame.Name = "UIFrame"
-	UIFrame.Parent = UiLibrary
+	UIFrame.Parent = TopBar
 	UIFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-	UIFrame.Position = UDim2.new(0.302731425, 0, 0.304347813, 0)
-	UIFrame.Size = UDim2.new(0, 396, 0, 272)
-	UIFrame.Active = true
-	UIFrame.Draggable = true
+	UIFrame.Position = UDim2.new(-0.000298856496, 0, 0.97101438, 0)
+	UIFrame.Size = UDim2.new(0, 396, 0, 243)
 
-	UICorner.Parent = UIFrame
+	UICorner_3.Parent = UIFrame
 
 	DropShadowHolder.Name = "DropShadowHolder"
 	DropShadowHolder.Parent = UIFrame
@@ -90,41 +117,12 @@ function VisualLib:MakeWindow(WindowFile)
 	DropShadow.ScaleType = Enum.ScaleType.Slice
 	DropShadow.SliceCenter = Rect.new(49, 49, 450, 450)
 
-	TopBar.Name = "TopBar"
-	TopBar.Parent = UIFrame
-	TopBar.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-	TopBar.Size = UDim2.new(0, 396, 0, 30)
-
-	UICorner_2.Parent = TopBar
-
-	AssestTopBar.Name = "AssestTopBar"
-	AssestTopBar.Parent = TopBar
-	AssestTopBar.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-	AssestTopBar.BorderSizePixel = 0
-	AssestTopBar.Position = UDim2.new(0, 0, 0.600000024, 0)
-	AssestTopBar.Size = UDim2.new(0, 396, 0, 12)
-
-	Title.Name = "Title"
-	Title.Parent = TopBar
-	Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	Title.BackgroundTransparency = 1.000
-	Title.Size = UDim2.new(0, 203, 0, 30)
-	Title.ZIndex = 2
-	Title.Font = Enum.Font.Unknown
-	Title.Text = WindowFile.Name
-	Title.TextColor3 = Color3.fromRGB(255, 255, 255)
-	Title.TextScaled = true
-	Title.TextSize = 14.000
-	Title.TextWrapped = true
-	Title.TextXAlignment = Enum.TextXAlignment.Left
-
 	TabContainer.Name = "TabContainer"
 	TabContainer.Parent = UIFrame
 	TabContainer.BackgroundColor3 = Color3.fromRGB(68, 68, 68)
-	TabContainer.Position = UDim2.new(0, 0, 0.110294119, 0)
 	TabContainer.Size = UDim2.new(0, 116, 0, 242)
 
-	UICorner_3.Parent = TabContainer
+	UICorner_4.Parent = TabContainer
 
 	Cover.Name = "Cover"
 	Cover.Parent = TabContainer
@@ -145,7 +143,7 @@ function VisualLib:MakeWindow(WindowFile)
 	TheTabContainer.BackgroundColor3 = Color3.fromRGB(68, 68, 68)
 	TheTabContainer.BorderSizePixel = 0
 	TheTabContainer.Position = UDim2.new(0.120689653, 0, 0.0276494306, 0)
-	TheTabContainer.Size = UDim2.new(0, 88, 0, 235)
+	TheTabContainer.Size = UDim2.new(0, 88, 0, 160)
 
 	UIGridLayout.Parent = TheTabContainer
 	UIGridLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
@@ -155,36 +153,16 @@ function VisualLib:MakeWindow(WindowFile)
 	ContainerFolder.Name = "ContainerFolder"
 	ContainerFolder.Parent = UIFrame
 	
-	ProfileIMAGE.Name = "ProfileIMAGE"
-	ProfileIMAGE.Parent = TabContainer
-	ProfileIMAGE.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	ProfileIMAGE.BackgroundTransparency = 0
-	ProfileIMAGE.Position = UDim2.new(0, 0, 0.779715538, 0)
-	ProfileIMAGE.Size = UDim2.new(0, 44, 0, 41)
-	ProfileIMAGE.Image = "https://www.roblox.com/headshot-thumbnail/image?userId="..userID.."&width=420&height=420&format=png"
-	
-	TextLabel.Name = "Profile Name"
-	TextLabel.Parent = TabContainer
-	TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	TextLabel.BackgroundTransparency = 1
-	TextLabel.Position = UDim2.new(0.37931034, 0, 0.779715538, 0)
-	TextLabel.Size = UDim2.new(0, 72, 0, 41)
-	TextLabel.Font = Enum.Font.Unknown
-	TextLabel.Text = game.Players.LocalPlayer.Name
-	TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-	TextLabel.TextScaled = true
-	TextLabel.TextSize = 14.000
-	TextLabel.TextWrapped = true
-
-	UICorner.Parent = TextLabel
-	
 	local TabFunction = {}
 	
 	function TabFunction:CreateTab(TabFile)
 		TabFile = TabFile or {}
-		TabFile.Name = TabFile.Name or ""
+		TabFile.Name = TabFile.Name or {}
 		local NewTab = Instance.new("TextButton")
-		local UICorner_4 = Instance.new("UICorner")
+		local UICorner_5 = Instance.new("UICorner")
+		local ProfileIMAGE = Instance.new("ImageLabel")
+		local TextLabel = Instance.new("TextLabel")
+		local UICorner_6 = Instance.new("UICorner")
 		local Container = Instance.new("Frame")
 		local _2ndContainer = Instance.new("ScrollingFrame")
 		local UIGridLayout_2 = Instance.new("UIGridLayout")
@@ -195,19 +173,41 @@ function VisualLib:MakeWindow(WindowFile)
 		NewTab.Position = UDim2.new(-0.579545438, 0, 0.17872341, 0)
 		NewTab.Size = UDim2.new(0, 200, 0, 50)
 		NewTab.Font = Enum.Font.Unknown
-		NewTab.Text = TabFile.Name
+		NewTab.Text = "Tab"
 		NewTab.TextColor3 = Color3.fromRGB(255, 255, 255)
 		NewTab.TextScaled = true
 		NewTab.TextSize = 14.000
 		NewTab.TextWrapped = true
 
-		UICorner_4.Parent = NewTab
+		UICorner_5.Parent = NewTab
 
+		ProfileIMAGE.Name = "ProfileIMAGE"
+		ProfileIMAGE.Parent = TabContainer
+		ProfileIMAGE.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		ProfileIMAGE.BackgroundTransparency = 1.000
+		ProfileIMAGE.Position = UDim2.new(0, 0, 0.779715538, 0)
+		ProfileIMAGE.Size = UDim2.new(0, 44, 0, 41)
+		ProfileIMAGE.Image = "https://www.roblox.com/headshot-thumbnail/image?userId="..game.Players.LocalPlayer.UserId.."&width=420&height=420&format=png"
+
+		TextLabel.Parent = TabContainer
+		TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		TextLabel.BackgroundTransparency = 1.000
+		TextLabel.Position = UDim2.new(0.37931034, 0, 0.779715538, 0)
+		TextLabel.Size = UDim2.new(0, 72, 0, 41)
+		TextLabel.Font = Enum.Font.Unknown
+		TextLabel.Text = game.Players.LocalPlayer.Name
+		TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+		TextLabel.TextScaled = true
+		TextLabel.TextSize = 14.000
+		TextLabel.TextWrapped = true
+
+		UICorner_6.Parent = TextLabel
+		
 		Container.Name = "Container"
 		Container.Parent = ContainerFolder
 		Container.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
 		Container.BorderSizePixel = 0
-		Container.Position = UDim2.new(0.292929292, 0, 0.106617644, 0)
+		Container.Position = UDim2.new(0.292929292, 0, -0.00894154608, 0)
 		Container.Size = UDim2.new(0, 280, 0, 231)
 
 		_2ndContainer.Name = "_2ndContainer"
@@ -226,20 +226,20 @@ function VisualLib:MakeWindow(WindowFile)
 		UIGridLayout_2.CellSize = UDim2.new(0, 250, 0, 40)
 		
 		NewTab.MouseButton1Click:Connect(function()
-			for _,frame in pairs(ContainerFolder:GetChildren()) do
-				frame.Visible = false
+			for _,v in pairs(ContainerFolder:GetChildren()) do
+				v.Visible = false
 			end
-			Container.Visible = true
 		end)
+		Container.Visible = true
 		
-		local AddElement = {}
+		local ElementFunction = {}
 		
-		function AddElement:AddButton(ButtonFile)
+		function ElementFunction:AddButton(ButtonFile)
 			ButtonFile = ButtonFile or {}
 			ButtonFile.Name = ButtonFile.Name or ""
 			ButtonFile.Callback = ButtonFile.Callback or function() end
 			local NewButton = Instance.new("TextButton")
-			local UICorner_5 = Instance.new("UICorner")
+			local UICorner_7 = Instance.new("UICorner")
 			
 			NewButton.Name = "NewButton"
 			NewButton.Parent = _2ndContainer
@@ -247,32 +247,31 @@ function VisualLib:MakeWindow(WindowFile)
 			NewButton.Position = UDim2.new(0.0535714291, 0, 0, 0)
 			NewButton.Size = UDim2.new(0, 250, 0, 49)
 			NewButton.Font = Enum.Font.Unknown
+			NewButton.Text = ButtonFile.Name
 			NewButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 			NewButton.TextScaled = true
 			NewButton.TextSize = 14.000
 			NewButton.TextWrapped = true
 			NewButton.TextXAlignment = Enum.TextXAlignment.Left
-			NewButton.Text = ButtonFile.Name
 
-			UICorner_5.Parent = NewButton
+			UICorner_7.Parent = NewButton
 			
 			NewButton.MouseButton1Click:Connect(function()
 				pcall(ButtonFile.Callback)
 			end)
 		end
 		
-		function AddElement:AddToggle(ToggleFile)
+		function ElementFunction:AddToggle(ToggleFile)
 			ToggleFile = ToggleFile or {}
 			ToggleFile.Name = ToggleFile.Name or ""
 			ToggleFile.Callback = ToggleFile.Callback or function() end
 			local NewToggle = Instance.new("TextButton")
-			local UICorner_6 = Instance.new("UICorner")
+			local UICorner_8 = Instance.new("UICorner")
 			local ToggleFrame = Instance.new("Frame")
 			local _Frame = Instance.new("Frame")
-			local UICorner_7 = Instance.new("UICorner")
-			local UICorner_8 = Instance.new("UICorner")
-
-
+			local UICorner_9 = Instance.new("UICorner")
+			local UICorner_10 = Instance.new("UICorner")
+			
 			NewToggle.Name = "NewToggle"
 			NewToggle.Parent = _2ndContainer
 			NewToggle.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
@@ -286,55 +285,55 @@ function VisualLib:MakeWindow(WindowFile)
 			NewToggle.TextWrapped = true
 			NewToggle.TextXAlignment = Enum.TextXAlignment.Left
 
-			UICorner_6.Parent = NewToggle
+			UICorner_8.Parent = NewToggle
 
 			ToggleFrame.Name = "ToggleFrame"
 			ToggleFrame.Parent = NewToggle
 			ToggleFrame.BackgroundColor3 = Color3.fromRGB(83, 83, 83)
 			ToggleFrame.Position = UDim2.new(0.723999977, 0, 0.174999997, 0)
 			ToggleFrame.Size = UDim2.new(0, 59, 0, 26)
-
-			UICorner_8.Parent = ToggleFrame
+			
+			UICorner_10.Parent = ToggleFrame
 
 			_Frame.Name = "_Frame"
 			_Frame.Parent = ToggleFrame
-			_Frame.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
-			_Frame.Position = UDim2.new(0.098591432, 0, 0.15384616, 0)
+			_Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			_Frame.Position = UDim2.new(0.166388065, 0, 0.15384616, 0)
 			_Frame.Size = UDim2.new(0, 26, 0, 17)
 
-			UICorner_7.Parent = _Frame
+			UICorner_9.Parent = _Frame
 			
 			local function Fire()
 				enabled = not enabled
-				_Frame:TweenPosition(enabled and UDim2.new(0.455, 0,0.154, 0) or UDim2.new(0.166, 0,0.154, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Sine, 0.2)
-				_Frame.BackgroundColor3 = enabled and Color3.fromRGB(0, 255, 0) or Color3.fromRGB(255, 0, 0)
+				_Frame:TweenPosition(enabled and UDim2.new(0.455, 0,0.154, 0) or UDim2.new(0.116, 0,0.154, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Sine, 0.5)
+				_Frame.BackgroundColor3 = Color3.fromRGB(0, 255, 0) or Color3.fromRGB(255, 0, 0)
 				pcall(ToggleFile.Callback)
 			end
 			
 			NewToggle.MouseButton1Click:Connect(Fire)
 		end
 		
-		function AddElement:AddSlider(SliderFile)
+		function ElementFunction:AddSlider(SliderFile)
 			SliderFile = SliderFile or {}
 			SliderFile.Name = SliderFile.Name or ""
 			SliderFile.Min = SliderFile.Min or 0
 			SliderFile.Max = SliderFile.Max or 100
 			SliderFile.Callback = SliderFile.Callback or function() end
 			local Slider = Instance.new("Frame")
-			local UICorner = Instance.new("UICorner")
+			local UICorner_11 = Instance.new("UICorner")
 			local BackHolder = Instance.new("Frame")
-			local UICorner_2 = Instance.new("UICorner")
+			local UICorner_12 = Instance.new("UICorner")
 			local SliderName = Instance.new("TextLabel")
 			local Handle = Instance.new("Frame")
-			local UICorner_3 = Instance.new("UICorner")
-
+			local UICorner_13 = Instance.new("UICorner")
+			
 			Slider.Name = "Slider"
 			Slider.Parent = _2ndContainer
 			Slider.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
 			Slider.Position = UDim2.new(0.303571433, 0, 0.20562771, 0)
 			Slider.Size = UDim2.new(0, 100, 0, 100)
 
-			UICorner.Parent = Slider
+			UICorner_11.Parent = Slider
 
 			BackHolder.Name = "BackHolder"
 			BackHolder.Parent = Slider
@@ -342,7 +341,7 @@ function VisualLib:MakeWindow(WindowFile)
 			BackHolder.Position = UDim2.new(0.0399999991, 0, 0.150000006, 0)
 			BackHolder.Size = UDim2.new(0, 229, 0, 27)
 
-			UICorner_2.Parent = BackHolder
+			UICorner_12.Parent = BackHolder
 
 			SliderName.Name = "SliderName"
 			SliderName.Parent = BackHolder
@@ -361,7 +360,7 @@ function VisualLib:MakeWindow(WindowFile)
 			Handle.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
 			Handle.Size = UDim2.new(0, 10, 0, 27)
 
-			UICorner_3.Parent = Handle
+			UICorner_13.Parent = Handle
 			
 			local Dragging = false
 
@@ -380,28 +379,28 @@ function VisualLib:MakeWindow(WindowFile)
 				if Dragging and Input.UserInputType == Enum.UserInputType.MouseMovement then
 					local MouseX = Input.Position.X - BackHolder.AbsolutePosition.X
 					Handle.Position = UDim2.new(0, math.clamp(MouseX, 0, BackHolder.Size.X.Offset), 0, 0)
-					
+
 					local Percentage = Handle.Position.X.Offset / BackHolder.Size.X.Offset
 					local Value = SliderFile.Min + (SliderFile.Max - SliderFile.Min) * Percentage
+					SliderFile.Callback(Value)
 				end
 			end)
 		end
 		
-		function AddElement:AddKeyBind(KeyBindFile)
+		function ElementFunction:AddKeyBind(KeyBindFile)
 			KeyBindFile = KeyBindFile or {}
 			KeyBindFile.Name = KeyBindFile.Name or ""
-			KeyBindFile.Input = KeyBindFile.Input or Enum.KeyCode.E
 			KeyBindFile.Callback = KeyBindFile.Callback or function() end
 			local NewKeyBind = Instance.new("TextButton")
-			local UICorner = Instance.new("UICorner")
+			local UICorner_14 = Instance.new("UICorner")
 			local KeyBindFrame = Instance.new("Frame")
-			local UICorner_2 = Instance.new("UICorner")
+			local UICorner_15 = Instance.new("UICorner")
 			local TextBind = Instance.new("TextLabel")
-
+			
 			NewKeyBind.Name = "NewKeyBind"
 			NewKeyBind.Parent = _2ndContainer
 			NewKeyBind.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
-			NewKeyBind.Position = UDim2.new(0.107142858, 0, 0.00649350649, 0)
+			NewKeyBind.Position = UDim2.new(0.107142858, 0, 0.0432900414, 0)
 			NewKeyBind.Size = UDim2.new(0, 250, 0, 49)
 			NewKeyBind.Font = Enum.Font.Unknown
 			NewKeyBind.Text = KeyBindFile.Name
@@ -411,7 +410,7 @@ function VisualLib:MakeWindow(WindowFile)
 			NewKeyBind.TextWrapped = true
 			NewKeyBind.TextXAlignment = Enum.TextXAlignment.Left
 
-			UICorner.Parent = NewKeyBind
+			UICorner_14.Parent = NewKeyBind
 
 			KeyBindFrame.Name = "KeyBindFrame"
 			KeyBindFrame.Parent = NewKeyBind
@@ -419,7 +418,7 @@ function VisualLib:MakeWindow(WindowFile)
 			KeyBindFrame.Position = UDim2.new(0.812000036, 0, 0.149999991, 0)
 			KeyBindFrame.Size = UDim2.new(0, 36, 0, 27)
 
-			UICorner_2.Parent = KeyBindFrame
+			UICorner_15.Parent = KeyBindFrame
 
 			TextBind.Name = "TextBind"
 			TextBind.Parent = KeyBindFrame
@@ -428,48 +427,46 @@ function VisualLib:MakeWindow(WindowFile)
 			TextBind.Position = UDim2.new(0.027777791, 0, 2.98023224e-08, 0)
 			TextBind.Size = UDim2.new(1, 0, 1, 0)
 			TextBind.Font = Enum.Font.Unknown
-			TextBind.Text = KeyBindFile.Input.Name
 			TextBind.TextColor3 = Color3.fromRGB(255, 255, 255)
 			TextBind.TextScaled = true
 			TextBind.TextSize = 14.000
 			TextBind.TextWrapped = true
 			
+			-- When the NewKeyBind is Clicked, they will set the input to the KeyBindFrame
 			NewKeyBind.MouseButton1Click:Connect(function()
-				print("Sorry but this is useless")
-			end)
-			
-			game:GetService("UserInputService").InputBegan:Connect(function(Input)
-				if Input.KeyCode == KeyBindFile.Input then
-					pcall(KeyBindFile.Callback)
-				end
+				TextBind.Text = "..."
+				
+				game:GetService("UserInputService").InputBegan:Connect(function(Input)
+					if Input.UserInputType == Enum.UserInputType.Keyboard then
+						TextBind.Text = Input.KeyCode.Name
+						KeyBindFile.Callback(Input.KeyCode.Name)
+					end
+				end)
 			end)
 		end
 		
-		function AddElement:AddTextLabel(Text)
+		function ElementFunction:AddTextLabel(String)
 			local TextDisplay = Instance.new("TextLabel")
-			local UICorner = Instance.new("UICorner")
+			local UICorner_16 = Instance.new("UICorner")
 
 			TextDisplay.Name = "TextDisplay"
-			TextDisplay.Parent =_2ndContainer
+			TextDisplay.Parent = _2ndContainer
 			TextDisplay.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
 			TextDisplay.Size = UDim2.new(0, 200, 0, 50)
 			TextDisplay.Font = Enum.Font.Unknown
-			TextDisplay.Text = Text
+			TextDisplay.Text = String
 			TextDisplay.TextColor3 = Color3.fromRGB(255, 255, 255)
 			TextDisplay.TextScaled = true
 			TextDisplay.TextSize = 14.000
 			TextDisplay.TextWrapped = true
 
-			UICorner.Parent = TextDisplay
+			UICorner_16.Parent = TextDisplay
 		end
 		
-		return AddElement
+		return ElementFunction
 	end
+	
 	return TabFunction
-end
-
-function VisualLib:Destroy()
-	UiLibrary:Destroy()
 end
 
 return VisualLib
