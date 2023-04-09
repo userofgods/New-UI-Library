@@ -70,7 +70,7 @@ Remember the Keyback is a Button, So its Useless
 Tab:AddTextLabel("TEXTLABEL")
 ```
 
-# Destorying The UI
+# Destorying The UI -- FIXING
 ```lua
 VisualLib:Destroy()
 ```
