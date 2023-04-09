@@ -390,12 +390,16 @@ function VisualLib:MakeWindow(WindowFile)
 		function ElementFunction:AddKeyBind(KeyBindFile)
 			KeyBindFile = KeyBindFile or {}
 			KeyBindFile.Name = KeyBindFile.Name or ""
+			KeyBindFile.Hold = KeyBindFile.Hold or false
 			KeyBindFile.Callback = KeyBindFile.Callback or function() end
 			local NewKeyBind = Instance.new("TextButton")
 			local UICorner_14 = Instance.new("UICorner")
 			local KeyBindFrame = Instance.new("Frame")
 			local UICorner_15 = Instance.new("UICorner")
 			local TextBind = Instance.new("TextLabel")
+			
+			local Bind = {Value, Binding = false, Type = "Bind"}
+			local Holding = false
 			
 			NewKeyBind.Name = "NewKeyBind"
 			NewKeyBind.Parent = _2ndContainer
@@ -432,17 +436,47 @@ function VisualLib:MakeWindow(WindowFile)
 			TextBind.TextSize = 14.000
 			TextBind.TextWrapped = true
 			
-			-- When the NewKeyBind is Clicked, they will set the input to the KeyBindFrame
-			NewKeyBind.MouseButton1Click:Connect(function()
-				TextBind.Text = "..."
-				
-				game:GetService("UserInputService").InputBegan:Connect(function(Input)
-					if Input.UserInputType == Enum.UserInputType.Keyboard then
-						TextBind.Text = Input.KeyCode.Name
-						KeyBindFile.Callback(Input.KeyCode.Name)
-					end
-				end)
+			NewKeyBind.InputEnded:Connect(function(Input)
+				if Input.UserInputType == Enum.UserInputType.MouseButton1 then
+					if Bind.Binding then return end
+					Bind.Binding = true
+					TextBind.Text = "..."
+				end
 			end)
+			
+			game:GetService("UserInputService").InputBegan:Connect(function(Input)
+				if Bind.Binding then
+					Bind.Value = Input.KeyCode.Name
+					TextBind.Text = Bind.Value
+					Bind.Binding = false
+				end
+				
+				if not KeyBindFile.Hold and Input.KeyCode.Name == Bind.Value then
+					KeyBindFile.Callback()
+				end
+				
+				if KeyBindFile.Hold and Input.UserInputType == Enum.UserInputType.Keyboard and Input.KeyCode.Name == Bind.Value then
+					Holding = true
+					
+					while Holding do wait()
+						KeyBindFile.Callback()
+						
+						if game:GetService("UserInputService"):IsKeyDown(Bind.Value) then continue end -- if the key is still down, keep going.
+						Holding = false
+					end	
+				end	
+			end)
+			
+		end
+		
+		function ElementFunction:AddDropdown(DropdownFile)
+			DropdownFile = DropdownFile or {}
+			DropdownFile.Name = DropdownFile.Name or ""
+			DropdownFile.Options = DropdownFile.Options or {}
+			DropdownFile.Callback = DropdownFile.Callback or function() end
+			
+			local NewDropdownFrame_2ndContainer_2ndContainer_2ndContainer_2ndContainer_2ndContainer_DropDownHolder_DropDownHolder_DropDownHolder_DropDownHolder_DropDownHolder_NewDropdownFrame_NewDropdownFrame_NewDropdownFrame_NewDropdownFrame_NewDropdownFrame_NewDropdowmButton_NewDropdowmButton_NewDropdowmButton_NewDropdowmButton_TextLabel_TextLabel_TextLabel_TextLabel_TextLabel_TextLabel_ButtonText_ButtonText_ButtonText_ButtonText_ButtonText_ButtonText_ScrollingFrame_ScrollingFrame_ScrollingFrame_ScrollingFrame_ScrollingFram
+			
 		end
 		
 		function ElementFunction:AddTextLabel(String)
@@ -469,4 +503,15 @@ function VisualLib:MakeWindow(WindowFile)
 	return TabFunction
 end
 
-return VisualLib
+local Window = VisualLib:MakeWindow({Name = "Visual Library"})
+
+local Tab = Window:CreateTab({
+	Name = "Tab"
+})
+
+Tab:AddKeyBind({
+	Name = "KeyBindTest",
+	Callback = function ()
+		print("Working")
+	end
+})
