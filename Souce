@@ -81,7 +81,7 @@ function VisualLib:MakeWindow(WindowFile)
 	Title.BackgroundTransparency = 1.000
 	Title.Size = UDim2.new(0, 203, 0, 30)
 	Title.Font = Enum.Font.Unknown
-	Title.Text = "UI Library"
+	Title.Text = WindowFile.Name
 	Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 	Title.TextScaled = true
 	Title.TextSize = 14.000
