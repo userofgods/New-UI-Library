@@ -54,7 +54,7 @@ Tab:AddSlider({
 })
 ```
 
-## Adding A KeyBind -- KEYBIND FIX INPUT
+## Adding A KeyBind
 ```lua
 Tab:AddKeyBind({
     Name = "KeyBind",
@@ -63,14 +63,13 @@ Tab:AddKeyBind({
     end
 })
 ```
-Remember the Keyback is a Button, So its Useless
 
-## Adding A TextLabel -- UPDATE
+## Adding A TextLabel
 ```lua
 Tab:AddTextLabel("TEXTLABEL")
 ```
 
-# Destorying The UI -- FIXING
+# Destorying The UI
 ```lua
 VisualLib:Destroy()
 ```
